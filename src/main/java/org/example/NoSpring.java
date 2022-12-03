@@ -26,6 +26,7 @@ public class NoSpring {
     private static SqlSessionFactory sqlSessionFactory = initSqlSessionFactory();
 
     public static void main(String[] args) {
+
         //初始化
         try (SqlSession session = sqlSessionFactory.openSession(true)) {
             //创建mapper对象
@@ -54,7 +55,7 @@ public class NoSpring {
     //连接进行
     public static DataSource dataSource() {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
+        dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
         dataSource.setUrl("jdbc:mysql://localhost:3306/course?serverTimezone=GMT%2B8");
         dataSource.setUsername("root");
         dataSource.setPassword("148963");
