@@ -47,6 +47,7 @@ public class NoSpring {
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
         Environment environment = new Environment("Production", transactionFactory, dataSource);
         MybatisConfiguration configuration = new MybatisConfiguration(environment);
+        //在这里添加Mapper
         configuration.addMapper(UserMapper.class);
         configuration.setLogImpl(StdOutImpl.class);
         return new MybatisSqlSessionFactoryBuilder().build(configuration);
